@@ -5,7 +5,7 @@ fetch("travel_recommendation_api.json")
     .then(response => response.json())
     .then(data => {
         travelData = data;
-        console.log("Fetched travel data:", travelData); // ✅ Check output
+        console.log("Fetched travel data:", travelData); //Check travel data
     })
     .catch(error => {
         console.error("Error fetching data:", error);
