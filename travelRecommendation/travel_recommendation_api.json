@@ -6,12 +6,12 @@
       "cities": [
         {
           "name": "Sydney, Australia",
-          "imageUrl": "Sydney,Austrailia.jpg",
+          "imageUrl": "https://raw.githubusercontent.com/RRoberts12Seneca/travelRecommendation/main/Sydney%2CAustrailia.jpg",
           "description": "A vibrant city known for its iconic landmarks like the Sydney Opera House and Sydney Harbour Bridge."
         },
         {
           "name": "Melbourne, Australia",
-          "imageUrl": "Melbourne,Austrailia.jpg",
+          "imageUrl": "https://raw.githubusercontent.com/RRoberts12Seneca/travelRecommendation/main/Melbourne%2CAustrailia.jpg",
           "description": "A cultural hub famous for its art, food, and diverse neighborhoods."
         }
       ]
@@ -22,12 +22,12 @@
       "cities": [
         {
           "name": "Tokyo, Japan",
-          "imageUrl": "Tokyo,Japan.jpg",
+          "imageUrl": "https://raw.githubusercontent.com/RRoberts12Seneca/travelRecommendation/main/Tokyo%2CJapan.jpg",
           "description": "A bustling metropolis blending tradition and modernity, famous for its cherry blossoms and rich culture."
         },
         {
           "name": "Kyoto, Japan",
-          "imageUrl": "Kyoto,Japan.jpg",
+          "imageUrl": "https://raw.githubusercontent.com/RRoberts12Seneca/travelRecommendation/main/Kyoto%2CJapan.jpg",
           "description": "Known for its historic temples, gardens, and traditional tea houses."
         }
       ]
@@ -38,12 +38,12 @@
       "cities": [
         {
           "name": "Rio de Janeiro, Brazil",
-          "imageUrl": "Rio De Janiero,Brazil.jpg",
+          "imageUrl": "https://raw.githubusercontent.com/RRoberts12Seneca/travelRecommendation/main/Rio%20De%20Janiero%2CBrazil.jpg",
           "description": "A lively city known for its stunning beaches, vibrant carnival celebrations, and iconic landmarks."
         },
         {
           "name": "São Paulo, Brazil",
-          "imageUrl": "Sao Paulo,Brazil.jpg",
+          "imageUrl": "https://raw.githubusercontent.com/RRoberts12Seneca/travelRecommendation/main/Sao%20Paulo%2CBrazil.jpg",
           "description": "The financial hub with diverse culture, arts, and a vibrant nightlife."
         }
       ]
@@ -53,13 +53,13 @@
     {
       "id": 1,
       "name": "Angkor Wat, Cambodia",
-      "imageUrl": "Angkor Wat,Cambodia.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/RRoberts12Seneca/travelRecommendation/main/Angkor%20Wat%2CCambodia.jpg",
       "description": "A UNESCO World Heritage site and the largest religious monument in the world."
     },
     {
       "id": 2,
       "name": "Taj Mahal, India",
-      "imageUrl": "Taj Mahal, India.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/RRoberts12Seneca/travelRecommendation/main/Taj%20Mahal%2C%20India.jpg",
       "description": "An iconic symbol of love and a masterpiece of Mughal architecture."
     }
   ],
@@ -67,13 +67,13 @@
     {
       "id": 1,
       "name": "Bora Bora, French Polynesia",
-      "imageUrl": "Bora Bora,French Polynesia.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/RRoberts12Seneca/travelRecommendation/main/Bora%20Bora%2CFrench%20Polynesia.jpg",
       "description": "An island known for its stunning turquoise waters and luxurious overwater bungalows."
     },
     {
       "id": 2,
       "name": "Copacabana Beach, Brazil",
-      "imageUrl": "Copacabana, Brazil.jpg",
+      "imageUrl": "https://raw.githubusercontent.com/RRoberts12Seneca/travelRecommendation/main/Copacabana%2C%20Brazil.jpg",
       "description": "A famous beach in Rio de Janeiro, Brazil, with a vibrant atmosphere and scenic views."
     }
   ]

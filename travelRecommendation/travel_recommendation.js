@@ -1,15 +1,4 @@
-let travelData = {}; // FIXED
-
-// Task 6: Fetch data from JSON
-fetch("travel_recommendation_api.json")
-    .then(response => response.json())
-    .then(data => {
-        travelData = data;
-        console.log("Fetched travel data:", travelData);
-    })
-    .catch(error => {
-        console.error("Error fetching data:", error);
-    });
+let travelData = {};
 
 // Elements
 const searchBtn = document.getElementById("searchBtn");
@@ -17,63 +6,71 @@ const resetBtn = document.getElementById("resetBtn");
 const searchInput = document.getElementById("searchInput");
 const resultsDiv = document.getElementById("results");
 
-// Task 7 & 8: Keyword search + recommendations
+// Fetch JSON data
+fetch("travel_recommendation_api.json")
+    .then(response => response.json())
+    .then(data => {
+        travelData = data;
+        searchBtn.disabled = false;
+        console.log("Travel data loaded:", travelData);
+    })
+    .catch(error => {
+        console.error("Error loading travel data:", error);
+    });
+
+// Search button
 searchBtn.addEventListener("click", () => {
     const keyword = searchInput.value.toLowerCase().trim();
     resultsDiv.innerHTML = "";
 
-    if (keyword === "") {
+    if (!keyword) {
         resultsDiv.innerHTML = "<p>Please enter a keyword.</p>";
         return;
     }
 
-    let filteredResults = [];
+    let results = [];
 
     if (keyword === "beach" || keyword === "beaches") {
-        filteredResults = travelData.beaches || [];
-    } else if (keyword === "temple" || keyword === "temples") {
-        filteredResults = travelData.temples || [];
-    } else if (keyword === "country" || keyword === "countries") {
-        filteredResults = travelData.countries || [];
-    } else {
+        results = travelData.beaches || [];
+    } 
+    else if (keyword === "temple" || keyword === "temples") {
+        results = travelData.temples || [];
+    } 
+    else if (keyword === "country" || keyword === "countries") {
+        (travelData.countries || []).forEach(country => {
+            results.push(...country.cities);
+        });
+    } 
+    else {
         resultsDiv.innerHTML = "<p>No recommendations found.</p>";
         return;
     }
 
-    displayResults(filteredResults);
+    displayResults(results);
 });
 
 // Display results
 function displayResults(items) {
+    if (items.length === 0) {
+        resultsDiv.innerHTML = "<p>No results available.</p>";
+        return;
+    }
+
     items.forEach(item => {
         const card = document.createElement("div");
-        card.style.marginBottom = "30px";
-
-        let timeInfo = "";
-        if (item.timeZone) {
-            const options = {
-                timeZone: item.timeZone,
-                hour12: true,
-                hour: "numeric",
-                minute: "numeric",
-                second: "numeric"
-            };
-            const localTime = new Date().toLocaleTimeString("en-US", options);
-            timeInfo = `<p><strong>Local Time:</strong> ${localTime}</p>`;
-        }
+        card.style.marginBottom = "40px";
 
         card.innerHTML = `
             <h2>${item.name}</h2>
-            <img src="${item.imageUrl}" width="300">
+            <img src="${item.imageUrl}" width="300" onerror="this.style.display='none'">
             <p>${item.description}</p>
-            ${timeInfo}
         `;
 
         resultsDiv.appendChild(card);
     });
 }
 
-// Task 9: Clear button
+// Reset button
 resetBtn.addEventListener("click", () => {
     searchInput.value = "";
     resultsDiv.innerHTML = "";
