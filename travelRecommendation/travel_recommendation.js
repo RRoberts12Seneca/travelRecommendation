@@ -1,11 +1,11 @@
-let travelData = [];
+let travelData = {}; // FIXED
 
 // Task 6: Fetch data from JSON
 fetch("travel_recommendation_api.json")
     .then(response => response.json())
     .then(data => {
         travelData = data;
-        console.log("Fetched travel data:", travelData); //Check travel data
+        console.log("Fetched travel data:", travelData);
     })
     .catch(error => {
         console.error("Error fetching data:", error);
@@ -30,11 +30,11 @@ searchBtn.addEventListener("click", () => {
     let filteredResults = [];
 
     if (keyword === "beach" || keyword === "beaches") {
-        filteredResults = travelData.beaches;
+        filteredResults = travelData.beaches || [];
     } else if (keyword === "temple" || keyword === "temples") {
-        filteredResults = travelData.temples;
+        filteredResults = travelData.temples || [];
     } else if (keyword === "country" || keyword === "countries") {
-        filteredResults = travelData.countries;
+        filteredResults = travelData.countries || [];
     } else {
         resultsDiv.innerHTML = "<p>No recommendations found.</p>";
         return;
@@ -49,7 +49,6 @@ function displayResults(items) {
         const card = document.createElement("div");
         card.style.marginBottom = "30px";
 
-        // Optional Task 10: Country time
         let timeInfo = "";
         if (item.timeZone) {
             const options = {

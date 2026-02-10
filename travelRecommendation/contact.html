@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Contact Us - Travel Recommendation Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
+            background-image: url("https://cdn.pixabay.com/photo/2020/08/14/18/41/mountain-5485776_1280.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
         }
 
         .navbar {
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 15px;
         }
 
@@ -22,16 +27,42 @@
 
         .content {
             padding: 40px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            margin: 50px auto;
+            max-width: 600px;
         }
 
         input, textarea {
-            width: 300px;
-            padding: 8px;
+            width: 100%;
+            padding: 10px;
             margin-bottom: 15px;
+            border-radius: 5px;
+            border: none;
         }
 
         button {
-            padding: 10px 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff6600;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e65c00;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -45,23 +76,43 @@
         <a href="contact.html">Contact Us</a>
     </div>
 
-    <!-- Contact Us Content -->
+    <!-- Contact Form -->
     <div class="content">
         <h1>Contact Us</h1>
 
-        <form>
-            <label>Name:</label><br>
-            <input type="text" name="name"><br>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
 
-            <label>Email:</label><br>
-            <input type="email" name="email"><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
-            <label>Message:</label><br>
-            <textarea rows="5"></textarea><br>
+            <label for="message">Message:</label>
+            <textarea id="message" rows="5" required></textarea>
 
             <button type="submit">Submit</button>
         </form>
     </div>
+
+    <!-- JavaScript -->
+    <script>
+        const form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault(); // Prevent page reload
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            if(name && email && message){
+                alert(`Thank you, ${name}! Your message has been sent.`);
+                form.reset();
+            } else {
+                alert("Please fill in all fields.");
+            }
+        });
+    </script>
 
 </body>
 </html>
