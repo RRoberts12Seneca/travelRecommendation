@@ -1,4 +1,4 @@
-git push origin
+
 // Search functionality with alt text for accessibility and better error handling
 document.getElementById('searchBtn').addEventListener('click', function() {
     let searchTerm = document.getElementById('searchBar').value.trim().toLowerCase();
